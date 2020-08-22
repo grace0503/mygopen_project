@@ -12,6 +12,6 @@ a_tag = driver.find_elements_by_css_selector('.item-content .item-title a')
 for i in range(len(a_tag)):
     href_attr = a_tag[i].get_attribute('href')
     print(href_attr)
-for i in range(len(a_tag)):
-    a_text = a_tag[i].text
+for j in range(len(a_tag)):
+    a_text = a_tag[j].text
     print(a_text)
