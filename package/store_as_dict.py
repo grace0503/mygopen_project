@@ -8,12 +8,12 @@ for i in range(1,4,1):
     driver.get(url)
     driver.refresh()
     WebDriverWait(driver,10).until(lambda d: d.find_elements_by_css_selector('.item-content .item-title a'))
-    a_tag = driver.find_elements_by_css_selector('.item-content .item-title a')
-    for j in range(len(a_tag)):
-        get_title_and_href_dict.update({'title_'+str(j):a_tag[j].text,'href_'+str(j):a_tag[j].get_attribute('href')})
-    # print(get_title_and_href_dict)
+        # print(get_title_and_href_dict)
     with open('storage_mygopen.csv','w',encoding = 'utf-8',newline='')as csvfile:
         fieldNames = ['title','href']
         writer = csv.DictWriter(csvfile,fieldnames= fieldNames,dialect='excel')
         writer.writeheader()
-        writer.writerow(get_title_and_href_dict)
+        a_tag = driver.find_elements_by_css_selector('.item-content .item-title a')
+        for j in range(len(a_tag)):
+            get_title_and_href_dict.update({'title':a_tag[j].text,'href':a_tag[j].get_attribute('href')})
+            writer.writerow(get_title_and_href_dict)
