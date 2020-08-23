@@ -9,7 +9,7 @@ for i in range(1,4,1):
     driver.refresh()
     WebDriverWait(driver,10).until(lambda d: d.find_elements_by_css_selector('.item-content .item-title a'))
         # print(get_title_and_href_dict)
-    with open('storage_mygopen.csv','w',encoding = 'utf-8',newline='')as csvfile:
+    with open('storage_mygopen.csv','a',encoding = 'utf-8',newline='')as csvfile:
         fieldNames = ['title','href']
         writer = csv.DictWriter(csvfile,fieldnames= fieldNames,dialect='excel')
         writer.writeheader()
